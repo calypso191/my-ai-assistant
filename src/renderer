@@ -1,0 +1,10 @@
+document.getElementById("hair-color").addEventListener("input", (e) => {
+  document.getElementById("avatar").style.filter = `hue-rotate(${e.target.value})`;
+});
+
+document.getElementById("photo-upload").addEventListener("change", (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    console.log("Fotoğraf yüklendi:", file.name);
+  }
+});

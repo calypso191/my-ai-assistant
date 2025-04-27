@@ -1,0 +1,13 @@
+{
+  "name": "my-ai-assistant",
+  "version": "1.0.0",
+  "description": "AI assistant with customizable avatars",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron": "^latest",
+    "opencv.js": "^latest"
+  }
+}

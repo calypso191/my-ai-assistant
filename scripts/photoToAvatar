@@ -1,0 +1,24 @@
+const cv = require('opencv.js');
+
+function adaptAvatarToPhoto(photoPath) {
+  const img = cv.imread(photoPath);
+  const gray = new cv.Mat();
+  cv.cvtColor(img, gray, cv.COLOR_RGBA2GRAY);
+
+  const faceCascade = new cv.CascadeClassifier();
+  faceCascade.load(cv.FS_AbsolutePath('haarcascade_frontalface_default.xml'));
+
+  const faces = new cv.RectVector();
+  faceCascade.detectMultiScale(gray, faces);
+
+  if (faces.size() > 0) {
+    const face = faces.get(0);
+    const faceRegion = img.roi(face);
+    cv.imshow('avatar', faceRegion);
+  }
+
+  img.delete();
+  gray.delete();
+  faces.delete();
+  faceCascade.delete();
+}

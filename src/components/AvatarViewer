@@ -1,0 +1,12 @@
+// AvatarViewer.js
+import React from 'react';
+
+const AvatarViewer = ({ avatarSrc }) => {
+  return (
+    <div className="avatar-container">
+      <img src={avatarSrc} alt="Avatar" className="avatar" />
+    </div>
+  );
+};
+
+export default AvatarViewer;

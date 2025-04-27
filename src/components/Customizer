@@ -1,0 +1,26 @@
+// Customizer.js
+import React, { useState } from 'react';
+
+const Customizer = ({ onChangeColor }) => {
+  const [hairColor, setHairColor] = useState("#000000");
+
+  const handleColorChange = (event) => {
+    setHairColor(event.target.value);
+    onChangeColor(event.target.value);  // Color değiştiğinde üst bileşene bildir.
+  };
+
+  return (
+    <div className="customizer">
+      <label htmlFor="hair-color">Saç Rengini Seç:</label>
+      <input 
+        type="color" 
+        id="hair-color" 
+        value={hairColor} 
+        onChange={handleColorChange} 
+      />
+      <button>Uygula</button>
+    </div>
+  );
+};
+
+export default Customizer;
